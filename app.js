@@ -8,6 +8,7 @@ var incorrect3 = [];
 var a = [];
 var foo = [];
 var fooTwo = [];
+var scoreOne = 0;
 
 var initialize = function(){
 
@@ -87,6 +88,9 @@ console.log(fooTwo);
  check1 =function(){
 	if(document.getElementById("answerOne").innerText==correct){
 		document.getElementById("answerOne").style.color = "green";
+		scoreOne += 10;
+		document.getElementById("score").innerText = scoreOne;
+		console.log(scoreOne);
 		console.log("you're right")
 	}
 	else{
@@ -99,11 +103,15 @@ console.log(fooTwo);
  check2 = function(){
 	if(document.getElementById("answerTwo").innerText==correct){
 		document.getElementById("answerTwo").style.color = "green";
+		scoreOne += 10;
+		document.getElementById("score").innerText = scoreOne;
+		console.log(scoreOne);
 		console.log("you're right")
 	}
 	else{
 	document.getElementById("answerTwo").style.color = "red";
 	console.log("you're wrong!")
+	console.log(scoreOne);
 	console.log(correct);
 	}
 };
@@ -111,6 +119,9 @@ console.log(fooTwo);
  check3 = function(){
 	if(document.getElementById("answerThree").innerText==correct){
 		document.getElementById("answerThree").style.color = "green";
+		scoreOne += 10;
+		document.getElementById("score").innerText = scoreOne;
+		console.log(scoreOne);
 		console.log("you're right")
 		console.log(correct);
 	}
@@ -124,7 +135,10 @@ console.log(fooTwo);
  check4 = function(){
 	if(document.getElementById("answerFour").innerText==correct){
 		document.getElementById("answerFour").style.color = "green";
-		console.log("you're right")
+		scoreOne += 10;
+		document.getElementById("score").innerText = scoreOne;
+		console.log(scoreOne);
+		console.log("you're right");
 		console.log(correct);
 	}
 	else{
