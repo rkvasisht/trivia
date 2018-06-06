@@ -1,0 +1,69 @@
+.inGame{
+	display: grid;
+	grid-template-rows: : 1fr 2fr 1fr;
+	width: 500px;
+	height: 500px;
+	border: 5px solid black;
+	text-align: center;
+}
+
+.boxOneOne{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.boxTwo{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.boxTwoTwo{
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.boxThree{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+#player{
+	border: 3px solid black;
+}
+
+#start{
+	border: 3px solid black;
+}
+
+#timer{
+	border: 3px solid black;
+}
+
+#questionAsked{
+	border: 3px solid black;
+}
+
+#answerOne{
+	border: 3px solid black;
+}
+
+#answerTwo{
+	border: 3px solid black;
+}
+
+#answerThree{
+	border: 3px solid black;
+}
+
+#answerFour{
+	border: 3px solid black;
+}
+
+#score{
+	border: 3px solid black;
+}
+
+#scoreToBeat{
+	border: 3px solid black;
+}
+
