@@ -1,18 +1,5 @@
 
-var qArray = [];
-var questionRandom = [];
-var correct = [];
-var incorrect1 = [];
-var incorrect2 = [];
-var incorrect3 = [];
-var a = [];
-var foo = [];
-var fooTwo = [];
-var scoreOne = 0;
-
-var initialize = function(){
-
-  qArray=[
+var qArray=[
 
 		{'question':'what color is the sky?',
 	 	'answer':'blue',
@@ -36,8 +23,23 @@ var initialize = function(){
 		}
 
 	];
+var questionRandom = [];
+var correct = [];
+var incorrect1 = [];
+var incorrect2 = [];
+var incorrect3 = [];
+var a = [];
+var foo = [];
+var fooTwo = [];
+var scoreOne = 0;
+var remainQ = [];
 
- questionRandom = qArray[Math.floor(Math.random()*qArray.length)];
+var initialize = function(){
+
+  
+console.log(qArray.length)
+var rando = Math.floor(Math.random()* qArray.length)
+ questionRandom = qArray[rando];
 console.log(questionRandom);
  correct = questionRandom.answer;
 console.log(correct);
@@ -45,12 +47,9 @@ console.log(correct);
 console.log(incorrect1);
  incorrect2 = questionRandom.option2;
  incorrect3 = questionRandom.option3;
-
+ qArray.splice(rando, 1)
+ console.log('post splice', qArray)
  a =[correct, incorrect1, incorrect2, incorrect3];
-
-
-
-
 
 	Array.prototype.shuffle = function() {
 	    var input = this;
@@ -157,6 +156,7 @@ var reset = function(){
 	document.getElementById("answerFour").style.color = "black";
 
 	initialize();
+
 
 
 }
