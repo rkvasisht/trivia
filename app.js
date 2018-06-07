@@ -33,6 +33,8 @@ var foo = [];
 var fooTwo = [];
 var scoreOne = 0;
 var remainQ = [];
+var startTime = 30; 
+var remainingTime = 0;
 
 var initialize = function(){
 
@@ -76,6 +78,7 @@ console.log(fooTwo);
 	document.getElementById("answerTwo").innerText=foo[1];
 	document.getElementById("answerThree").innerText=foo[2];
 	document.getElementById("answerFour").innerText=foo[3];
+
 
 
 };
@@ -163,12 +166,30 @@ var reset = function(){
 
 var slowReset = function(){
 
-	setTimeout(reset, 500);
+	setTimeout(reset, 700);
 };
 
+var updateClock = function() {
+	startTime--;
+	if (startTime <= 0){
+	startTime = 0;
+	}
+	document.getElementById("timer").textContent = "0:" + startTime;
+}
+ 
+var test = function(){
+
+	setInterval(updateClock,1000);
+}
 
 var clickStart = document.getElementById("start");
-clickStart.addEventListener('click', initialize);
+clickStart.addEventListener('click', function(){
+	
+	test();
+	initialize();
+	
+});
+
 
 var clickAOne = document.getElementById("answerOne");
 clickAOne.addEventListener('click', function(){
