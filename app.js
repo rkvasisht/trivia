@@ -96,13 +96,15 @@ var incorrect3 = [];
 var a = [];
 var foo = [];
 var fooTwo = [];
-var scoreBoard = 0;
+var scoreOne = 0;
+var scoreTwo = 0;
 var remainQ = [];
 var startTime = 11; 
 var test = null;
 var player =[0,0];
 var turn = 0;
 var counter = 0;
+var scoreWin = 0;
 
 
 var initialize = function(){
@@ -159,10 +161,18 @@ console.log(fooTwo);
  check1 =function(){
 	if(document.getElementById("answerOne").innerText==correct){
 		document.getElementById("answerOne").style.color = "green";
-		scoreBoard += 10;
-		player[turn]=scoreBoard;
-		document.getElementById("score").innerText = player[turn];
+		if(player[turn]==0){
+		scoreOne += 10;
+		scoreWin += 10;
+		document.getElementById("score").innerText = scoreOne;
 		console.log("you're right")
+		}
+		if(player[turn]==1){
+		scoreTwo += 10;
+		document.getElementById("score").innerText = scoreTwo;
+		console.log("you're right")
+		}
+
 	}
 	else{
 	document.getElementById("answerOne").style.color = "red";
@@ -173,10 +183,17 @@ console.log(fooTwo);
  check2 = function(){
 	if(document.getElementById("answerTwo").innerText==correct){
 		document.getElementById("answerTwo").style.color = "green";
-		scoreBoard += 10;
-		player[turn]=scoreBoard;
-		document.getElementById("score").innerText = player[turn]
+		if(player[turn]==0){
+		scoreOne += 10;
+		scoreWin += 10;
+		document.getElementById("score").innerText = scoreOne;
 		console.log("you're right")
+		}
+		if(player[turn]==1){
+		scoreTwo += 10;
+		document.getElementById("score").innerText = scoreTwo;
+		console.log("you're right")
+		}
 	}
 	else{
 	document.getElementById("answerTwo").style.color = "red";
@@ -187,11 +204,17 @@ console.log(fooTwo);
  check3 = function(){
 	if(document.getElementById("answerThree").innerText==correct){
 		document.getElementById("answerThree").style.color = "green";
-		scoreBoard += 10;
-		player[turn]=scoreBoard;
-		document.getElementById("score").innerText = player[turn];
+		if(player[turn]==0){
+		scoreOne += 10;
+		scoreWin += 10;
+		document.getElementById("score").innerText = scoreOne;
 		console.log("you're right")
-	;
+		}
+		if(player[turn]==1){
+		scoreTwo += 10;
+		document.getElementById("score").innerText = scoreTwo;
+		console.log("you're right")
+		}
 	}
 	else{
 	document.getElementById("answerThree").style.color = "red";
@@ -202,11 +225,17 @@ console.log(fooTwo);
  check4 = function(){
 	if(document.getElementById("answerFour").innerText==correct){
 		document.getElementById("answerFour").style.color = "green";
-		scoreBoard += 10;
-		player[turn]=scoreBoard;
-		document.getElementById("score").innerText = player[turn]; 
-		console.log("you're right");
-		console.log(correct);
+		if(player[turn]==0){
+		scoreOne += 10;
+		scoreWin += 10;
+		document.getElementById("score").innerText = scoreOne;
+		console.log("you're right")
+		}
+		if(player[turn]==1){
+		scoreTwo += 10;
+		document.getElementById("score").innerText = scoreTwo;
+		console.log("you're right")
+		}
 	}
 	else{
 	document.getElementById("answerFour").style.color = "red";
@@ -241,6 +270,8 @@ function stop(){
 function counterReset(){
 	if(counter>1){
 		startTime = 11;
+		turn = 1;
+		document.getElementById("score").innerText=0;
 	}
 };
 
@@ -252,8 +283,8 @@ function timerBox(){
 		if (startTime <= 0){
 			startTime = 0;
 			stop();
-			document.getElementById("scoreToBeat").innerText="Score to beat:"+player[0];
-			document.getElementById("score").innerText="final score:"+player[turn];
+			document.getElementById("scoreToBeat").innerText="Score to beat:"+scoreWin;
+			document.getElementById("score").innerText="final score:"+scoreOne;
 			document.getElementById("start").innerText="Player 2 click to start";
 			document.getElementById("timer").innerText="Times up!"
 			
@@ -264,23 +295,23 @@ function timerBox(){
 
 	}
 	if(counter>1){
-		document.getElementById("score").innerText=0
+		
 		turn = 1;
 		startTime--;
 		document.getElementById("start").innerText="Game in Progress";
 		if (startTime <= 0){
 			startTime = 0;
 			stop();
-			document.getElementById("score").innerText="final score:"+player[turn];
+			document.getElementById("score").innerText="final score:"+scoreTwo;
 			document.getElementById("start").innerText="Game Over!";
 			document.getElementById("timer").innerText="Times up!";
-			if(player[turn] > player[0]){
+			if(scoreWin > scoreTwo){
 				document.getElementById("player").innerText = "Player 2 Wins!";
 			}
-			if(player[0] > player[turn]){
+			if(scoreWin < scoreTwo){
 				document.getElementById("player").innerText = "Player 1 Wins!";
 			}
-			if(player[turn] = player[0]){
+			if(scoreWin = scoreTwo){
 				document.getElementById("player").innerText = "It's a Tie!"
 			}
 		}
