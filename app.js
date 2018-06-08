@@ -20,7 +20,72 @@ var qArray=[
 	 	'option1':'bob',
 	 	'option2':'moe',
 	 	'option3':'joe'
+		},
+
+		{'question':'what color is the color of grass?',
+	 	'answer':'green',
+	 	'option1':'yellow',
+	 	'option2':'brown',
+	 	'option3':'purple'
+		},
+
+		{'question':'what is 3+3?',
+	 	'answer':'6',
+	 	'option1':'3',
+	 	'option2':'7',
+	 	'option3':'97'
+		},
+
+		{'question':'what is your name',
+	 	'answer':'bill',
+	 	'option1':'bob',
+	 	'option2':'moe',
+	 	'option3':'joe'
+		},
+
+		{'question':'what color is the color of dirt',
+	 	'answer':'brown',
+	 	'option1':'green',
+	 	'option2':'aqua',
+	 	'option3':'purple'
+		},
+
+		{'question':'what is 4+4?',
+	 	'answer':'8',
+	 	'option1':'3',
+	 	'option2':'7',
+	 	'option3':'97'
+		},
+
+		{'question':'what is his name',
+	 	'answer':'ted',
+	 	'option1':'bob',
+	 	'option2':'moe',
+	 	'option3':'joe'
+		},
+
+		{'question':'what color is water?',
+	 	'answer':'water color',
+	 	'option1':'green',
+	 	'option2':'brown',
+	 	'option3':'purple'
+		},
+
+		{'question':'what is 5+5?',
+	 	'answer':'10',
+	 	'option1':'3',
+	 	'option2':'7',
+	 	'option3':'97'
+		},
+
+		{'question':'what is her name',
+	 	'answer':'jill',
+	 	'option1':'bob',
+	 	'option2':'moe',
+	 	'option3':'joe'
 		}
+
+
 
 	];
 var questionRandom = [];
@@ -31,10 +96,13 @@ var incorrect3 = [];
 var a = [];
 var foo = [];
 var fooTwo = [];
-var scoreOne = 0;
+var scoreBoard = 0;
 var remainQ = [];
 var startTime = 30; 
-var remainingTime = 0;
+var test = null;
+var player =[0,0];
+var turn = 0;
+
 
 var initialize = function(){
 
@@ -90,56 +158,52 @@ console.log(fooTwo);
  check1 =function(){
 	if(document.getElementById("answerOne").innerText==correct){
 		document.getElementById("answerOne").style.color = "green";
-		scoreOne += 10;
-		document.getElementById("score").innerText = scoreOne;
-		console.log(scoreOne);
+		scoreBoard += 10;
+		player[turn]=scoreBoard;
+		document.getElementById("score").innerText = player[turn];
 		console.log("you're right")
 	}
 	else{
 	document.getElementById("answerOne").style.color = "red";
 	console.log("you're wrong!")
-	console.log(correct);
 	}
 };
 
  check2 = function(){
 	if(document.getElementById("answerTwo").innerText==correct){
 		document.getElementById("answerTwo").style.color = "green";
-		scoreOne += 10;
-		document.getElementById("score").innerText = scoreOne;
-		console.log(scoreOne);
+		scoreBoard += 10;
+		player[turn]=scoreBoard;
+		document.getElementById("score").innerText = player[turn]
 		console.log("you're right")
 	}
 	else{
 	document.getElementById("answerTwo").style.color = "red";
 	console.log("you're wrong!")
-	console.log(scoreOne);
-	console.log(correct);
 	}
 };
 
  check3 = function(){
 	if(document.getElementById("answerThree").innerText==correct){
 		document.getElementById("answerThree").style.color = "green";
-		scoreOne += 10;
-		document.getElementById("score").innerText = scoreOne;
-		console.log(scoreOne);
+		scoreBoard += 10;
+		player[turn]=scoreBoard;
+		document.getElementById("score").innerText = player[turn];
 		console.log("you're right")
-		console.log(correct);
+	;
 	}
 	else{
 	document.getElementById("answerThree").style.color = "red";
 	console.log("you're wrong!")
-	console.log(correct);
 	}
 };
 
  check4 = function(){
 	if(document.getElementById("answerFour").innerText==correct){
 		document.getElementById("answerFour").style.color = "green";
-		scoreOne += 10;
-		document.getElementById("score").innerText = scoreOne;
-		console.log(scoreOne);
+		scoreBoard += 10;
+		player[turn]=scoreBoard;
+		document.getElementById("score").innerText = player[turn]; 
 		console.log("you're right");
 		console.log(correct);
 	}
@@ -152,12 +216,11 @@ console.log(fooTwo);
 
 var reset = function(){
 
-
-	document.getElementById("answerOne").style.color = "black";
-	document.getElementById("answerTwo").style.color = "black";
-	document.getElementById("answerThree").style.color = "black";
-	document.getElementById("answerFour").style.color = "black";
-
+document.getElementById("answerOne").style.color = "black";
+document.getElementById("answerTwo").style.color = "black";
+document.getElementById("answerThree").style.color = "black";
+document.getElementById("answerFour").style.color = "black";
+	
 	initialize();
 
 
@@ -169,23 +232,29 @@ var slowReset = function(){
 	setTimeout(reset, 700);
 };
 
-var updateClock = function() {
+function stop(){
+
+	clearInterval(test);
+};
+
+function playerOneTimer(){
 	startTime--;
 	if (startTime <= 0){
 	startTime = 0;
+	stop();
+	document.getElementById("scoreToBeat").innerText=player[0];
+	document.getElementById("score").innerText="final score:"+player[turn];
+
 	}
 	document.getElementById("timer").textContent = "0:" + startTime;
 }
  
-var test = function(){
 
-	setInterval(updateClock,1000);
-}
 
 var clickStart = document.getElementById("start");
 clickStart.addEventListener('click', function(){
 	
-	test();
+	test = setInterval(playerOneTimer,1000);
 	initialize();
 	
 });
