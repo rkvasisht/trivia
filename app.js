@@ -101,10 +101,11 @@ var scoreTwo = 0;
 var remainQ = [];
 var startTime = 11; 
 var test = null;
-var player =[0,0];
+var player =[0,1];
 var turn = 0;
 var counter = 0;
 var scoreWin = 0;
+var canClick = true;
 
 
 var initialize = function(){
@@ -233,6 +234,7 @@ console.log(fooTwo);
 		}
 		if(player[turn]==1){
 		scoreTwo += 10;
+		scoreWin += 0
 		document.getElementById("score").innerText = scoreTwo;
 		console.log("you're right")
 		}
@@ -270,8 +272,11 @@ function stop(){
 function counterReset(){
 	if(counter>1){
 		startTime = 11;
+		scoreOne = 0;
 		turn = 1;
-		document.getElementById("score").innerText=0;
+		canClick = true;
+
+		
 	}
 };
 
@@ -280,7 +285,8 @@ function timerBox(){
 	if(counter==1){
 		startTime--;
 		document.getElementById("start").innerText="Game in Progress";
-		if (startTime <= 0){
+		if (startTime == 0){
+			canClick = false;
 			startTime = 0;
 			stop();
 			document.getElementById("scoreToBeat").innerText="Score to beat:"+scoreWin;
@@ -296,22 +302,24 @@ function timerBox(){
 	}
 	if(counter>1){
 		
-		turn = 1;
+		
 		startTime--;
 		document.getElementById("start").innerText="Game in Progress";
-		if (startTime <= 0){
+		if (startTime == 0){
+			canClick = false;
 			startTime = 0;
 			stop();
 			document.getElementById("score").innerText="final score:"+scoreTwo;
 			document.getElementById("start").innerText="Game Over!";
 			document.getElementById("timer").innerText="Times up!";
+			console.log(scoreWin,scoreTwo);
 			if(scoreWin > scoreTwo){
-				document.getElementById("player").innerText = "Player 2 Wins!";
-			}
-			if(scoreWin < scoreTwo){
 				document.getElementById("player").innerText = "Player 1 Wins!";
 			}
-			if(scoreWin = scoreTwo){
+			if(scoreWin < scoreTwo){
+				document.getElementById("player").innerText = "Player 2 Wins!";
+			}
+			if(scoreWin === scoreTwo){
 				document.getElementById("player").innerText = "It's a Tie!"
 			}
 		}
@@ -337,15 +345,21 @@ clickStart.addEventListener('click', function(){
 
 var clickAOne = document.getElementById("answerOne");
 clickAOne.addEventListener('click', function(){
-	check1();
-	slowReset();
+	if(canClick){
+		check1();
+		slowReset();
+	}
+	
 }); 
 
 
 var clickATwo = document.getElementById("answerTwo");
 clickATwo.addEventListener('click', function(){
+	if(canClick){
 	check2();
 	slowReset();
+	}
+
 }); 
 
 
@@ -353,16 +367,20 @@ clickATwo.addEventListener('click', function(){
 
 var clickAThree = document.getElementById("answerThree");
 clickAThree.addEventListener('click', function(){
+	if(canClick){
 	check3();
 	slowReset();
+	};
 });
 
 
 
 var clickAFour = document.getElementById("answerFour");
 clickAFour.addEventListener('click', function(){
+	if(canClick){
 	check4();
 	slowReset();
+	};
 });
 
 
