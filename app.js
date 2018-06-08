@@ -98,10 +98,11 @@ var foo = [];
 var fooTwo = [];
 var scoreBoard = 0;
 var remainQ = [];
-var startTime = 30; 
+var startTime = 11; 
 var test = null;
 var player =[0,0];
 var turn = 0;
+var counter = 0;
 
 
 var initialize = function(){
@@ -237,25 +238,68 @@ function stop(){
 	clearInterval(test);
 };
 
-function playerOneTimer(){
-	startTime--;
-	if (startTime <= 0){
-	startTime = 0;
-	stop();
-	document.getElementById("scoreToBeat").innerText=player[0];
-	document.getElementById("score").innerText="final score:"+player[turn];
+function counterReset(){
+	if(counter>1){
+		startTime = 11;
+	}
+};
+
+function timerBox(){
+
+	if(counter==1){
+		startTime--;
+		document.getElementById("start").innerText="Game in Progress";
+		if (startTime <= 0){
+			startTime = 0;
+			stop();
+			document.getElementById("scoreToBeat").innerText="Score to beat:"+player[0];
+			document.getElementById("score").innerText="final score:"+player[turn];
+			document.getElementById("start").innerText="Player 2 click to start";
+			document.getElementById("timer").innerText="Times up!"
+			
+		}
+		else{
+		document.getElementById("timer").textContent = "0:" + startTime;
+		}
 
 	}
-	document.getElementById("timer").textContent = "0:" + startTime;
-}
+	if(counter>1){
+		document.getElementById("score").innerText=0
+		turn = 1;
+		startTime--;
+		document.getElementById("start").innerText="Game in Progress";
+		if (startTime <= 0){
+			startTime = 0;
+			stop();
+			document.getElementById("score").innerText="final score:"+player[turn];
+			document.getElementById("start").innerText="Game Over!";
+			document.getElementById("timer").innerText="Times up!";
+			if(player[turn] > player[0]){
+				document.getElementById("player").innerText = "Player 2 Wins!";
+			}
+			if(player[0] > player[turn]){
+				document.getElementById("player").innerText = "Player 1 Wins!";
+			}
+			if(player[turn] = player[0]){
+				document.getElementById("player").innerText = "It's a Tie!"
+			}
+		}
+		else{
+		document.getElementById("timer").textContent = "0:" + startTime;
+		}
+	}
+};
  
 
 
 var clickStart = document.getElementById("start");
 clickStart.addEventListener('click', function(){
 	
-	test = setInterval(playerOneTimer,1000);
+	counter++;
+	counterReset();
+	test = setInterval(timerBox,1000);
 	initialize();
+	
 	
 });
 
@@ -292,5 +336,37 @@ clickAFour.addEventListener('click', function(){
 
 
 
+
+	// if()
+	// startTime--;
+	// if (startTime <= 0){
+	// startTime = 0;
+	// stop();
+	// document.getElementById("scoreToBeat").innerText=player[0];
+	// document.getElementById("score").innerText="final score:"+player[turn];
+	// turn=1;
+	// if(counter==1){
+		
+	// 	document.getElementById("score").innerText=0;
+	// 	document.getElementById("start").innerText ="Player 2 Start"
+	// 	startTime = 31;
+	// 	startTime--;
+	// 	if (startTime <= 0){
+	// 		startTime = 0;
+	// 		stop();
+	// 		if(player[0] > player[turn]){
+	// 			console.log("player 1 wins")
+	// 		}
+	// 		else{
+	// 			console.log("player 2 wins")
+	// 		};
+
+	// 	};
+
+	// }
+
+
+	// }
+	// document.getElementById("timer").textContent = "0:" + startTime;
 
 
