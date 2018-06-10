@@ -1,5 +1,5 @@
 
-var qArray=[
+var master=[
 
 		{'question':'what color is the sky?',
 	 	'answer':'blue',
@@ -88,6 +88,7 @@ var qArray=[
 
 
 	];
+var qArray=master;
 var questionRandom = [];
 var correct = [];
 var incorrect1 = [];
@@ -106,6 +107,7 @@ var turn = 0;
 var counter = 0;
 var scoreWin = 0;
 var canClick = true;
+
 
 
 var initialize = function(){
@@ -155,7 +157,34 @@ console.log(fooTwo);
 
 };
 
-
+function startOver(){
+	qArray = master;
+	 questionRandom = [];
+	 correct = [];
+	 incorrect1 = [];
+	 incorrect2 = [];
+	 incorrect3 = [];
+	 a = [];
+	 foo = [];
+	 fooTwo = [];
+	 scoreOne = 0;
+	 scoreTwo = 0;
+	 remainQ = [];
+	 startTime = 11; 
+	 // test = null;
+	 player =[0,1];
+	 turn = 0;
+	 counter = 0;
+	 scoreWin = 0;
+	 canClick = true;
+	 questionToPutBack = [];
+	 stuffPutBack = {};
+	 canClickTwo = true;
+	 document.getElementById("timer").innerText="30 Seconds on the Clock"
+	 document.getElementById("player").innerText="Reset"
+	 document.getElementById("start").innerText="Player 1 Click to Start"
+	 stop();
+};
 
 	
 
@@ -276,6 +305,7 @@ function counterReset(){
 		turn = 1;
 		canClick = true;
 
+
 		
 	}
 };
@@ -314,13 +344,13 @@ function timerBox(){
 			document.getElementById("timer").innerText="Times up!";
 			console.log(scoreWin,scoreTwo);
 			if(scoreWin > scoreTwo){
-				document.getElementById("player").innerText = "Player 1 Wins!";
+				document.getElementById("player").innerText = "Player 1 Wins! Click here to play again";
 			}
 			if(scoreWin < scoreTwo){
-				document.getElementById("player").innerText = "Player 2 Wins!";
+				document.getElementById("player").innerText = "Player 2 Wins! Click here to play again";
 			}
 			if(scoreWin === scoreTwo){
-				document.getElementById("player").innerText = "It's a Tie!"
+				document.getElementById("player").innerText = "It's a Tie! Click here to play again"
 			}
 		}
 		else{
@@ -348,6 +378,7 @@ clickAOne.addEventListener('click', function(){
 	if(canClick){
 		check1();
 		slowReset();
+	
 	}
 	
 }); 
@@ -358,6 +389,8 @@ clickATwo.addEventListener('click', function(){
 	if(canClick){
 	check2();
 	slowReset();
+	
+
 	}
 
 }); 
@@ -370,6 +403,7 @@ clickAThree.addEventListener('click', function(){
 	if(canClick){
 	check3();
 	slowReset();
+
 	};
 });
 
@@ -380,9 +414,12 @@ clickAFour.addEventListener('click', function(){
 	if(canClick){
 	check4();
 	slowReset();
+	
 	};
 });
 
+var clickReset = document.getElementById("player");
+clickReset.addEventListener('click', startOver);
 
 
 
