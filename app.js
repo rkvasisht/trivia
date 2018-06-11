@@ -209,7 +209,7 @@ function startOver(){
 	 scoreOne = 0;
 	 scoreTwo = 0;
 	 remainQ = [];
-	 startTime = 11; 
+	 startTime = 16; 
 	 // test = null;
 	 player =[0,1];
 	 turn = 0;
@@ -348,7 +348,7 @@ function counterReset(){
 //this function reset parameters for the second player to take their turn. 
 	if(counter>1){
 		qArray = repopList();
-		startTime = 30;
+		startTime = 16;
 		scoreOne = 0;
 		turn = 1;
 		canClick = true;
