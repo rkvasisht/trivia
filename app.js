@@ -57,7 +57,7 @@ var master=[
 	 	'option3':'Won the trip through a malbro points contest even though he is not a smoker'
 		},
 
-		{'question':'Who is the manager after Dwight shoot off his gun?',
+		{'question':'Who is the manager after Dwight shot off his gun?',
 	 	'answer':'Robert California',
 	 	'option1':'Jim',
 	 	'option2':'Creed',
