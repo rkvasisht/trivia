@@ -89,8 +89,8 @@ var master=[
 
 	];
 //question bank
-var qArray=master;
-// array of quesitons 
+var qArray= repopList();
+// array of quesitons. The qArray are equal, so on the reset, the removed questions will be put back.
 var questionRandom = [];
 // array of random quesiont
 var correct = [];
@@ -131,25 +131,25 @@ var canClick = true;
 
 
 var initialize = function(){
-//function used to fill out the question and answer section after every click. 
-  
+	//function used to fill out the question and answer section after every click. 
+	var rando = Math.floor(Math.random()* qArray.length)
+	// used to get a random index of the qArray
+	questionRandom = qArray[rando];
+	// used to keep track of the questions that have been asked. 
+	console.log(questionRandom);
+	 correct = questionRandom.answer;
 
-var rando = Math.floor(Math.random()* qArray.length)
-// used to get a random index of the qArray
- questionRandom = qArray[rando];
-// used to keep track of the questions that have been asked. 
+	// this is the answer to the question that is being asked.
+	 incorrect1 = questionRandom.option1;
+	 // this is the possible answer to the question that is being asked. 
 
- correct = questionRandom.answer;
-// this is the answer to the question that is being asked.
- incorrect1 = questionRandom.option1;
- // this is the possible answer to the question that is being asked. 
-
- incorrect2 = questionRandom.option2;
- incorrect3 = questionRandom.option3;
- qArray.splice(rando, 1)
- //this spliced the question being asked out of the question array so it can't be asked again. 
- 
- a =[correct, incorrect1, incorrect2, incorrect3];
+	 incorrect2 = questionRandom.option2;
+	 incorrect3 = questionRandom.option3;
+	 qArray.splice(rando, 1)
+	 console.log('qArray Splice', qArray.length)
+	 //this spliced the question being asked out of the question array so it can't be asked again. 
+	 
+	 a =[correct, incorrect1, incorrect2, incorrect3];
 
 
 	Array.prototype.shuffle = function() {
@@ -184,11 +184,20 @@ var rando = Math.floor(Math.random()* qArray.length)
 
 };
 
+function repopList(){
+	var temp = []
+	master.forEach(function(item){
+		temp.push(item);
+	})
+	return temp;
+}
 
 
 function startOver(){
 //reset parameters
-	qArray = master;
+	console.log('startOver ran')
+	var qArray = repopList();
+	console.log(qArray)
 	 questionRandom = [];
 	 correct = [];
 	 incorrect1 = [];
@@ -218,7 +227,7 @@ function startOver(){
 
 	
 
- check1 =function(){
+var check1 =function(){
  //check fuction for answer1 div
 	if(document.getElementById("answerOne").innerText==correct){
 		document.getElementById("answerOne").style.color = "green";
@@ -246,7 +255,7 @@ function startOver(){
 	}
 };
 
- check2 = function(){
+var check2 = function(){
  	//check two for div 2. Same functionality as check 1.
 	if(document.getElementById("answerTwo").innerText==correct){
 		document.getElementById("answerTwo").style.color = "green";
@@ -268,7 +277,7 @@ function startOver(){
 	}
 };
 
- check3 = function(){
+var check3 = function(){
  	//check two for div 3. Same functionality as check 1.
 	if(document.getElementById("answerThree").innerText==correct){
 		document.getElementById("answerThree").style.color = "green";
@@ -289,8 +298,7 @@ function startOver(){
 	
 	}
 };
-
- check4 = function(){
+var check4 = function(){
  	//check two for div 4. Same functionality as check 1.
 	if(document.getElementById("answerFour").innerText==correct){
 		document.getElementById("answerFour").style.color = "green";
@@ -314,11 +322,11 @@ function startOver(){
 };
 
 var reset = function(){
-//fucntion resets the color of the all the answers back to black after every click. 
-document.getElementById("answerOne").style.color = "black";
-document.getElementById("answerTwo").style.color = "black";
-document.getElementById("answerThree").style.color = "black";
-document.getElementById("answerFour").style.color = "black";
+	//fucntion resets the color of the all the answers back to black after every click. 
+	document.getElementById("answerOne").style.color = "black";
+	document.getElementById("answerTwo").style.color = "black";
+	document.getElementById("answerThree").style.color = "black";
+	document.getElementById("answerFour").style.color = "black";
 	
 	initialize();
 //calls the initialize function so another question can be asked. 
@@ -339,6 +347,7 @@ function stop(){
 function counterReset(){
 //this function reset parameters for the second player to take their turn. 
 	if(counter>1){
+		qArray = repopList();
 		startTime = 30;
 		scoreOne = 0;
 		turn = 1;
@@ -346,9 +355,6 @@ function counterReset(){
 		document.getElementById("score").innerText="Score"
 		playerId();
 		//this function changes the player name tag. 
-
-
-		
 	}
 };
 function playerId(){
