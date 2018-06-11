@@ -1,39 +1,70 @@
 .inGame{
-	display: grid;
-	grid-template-rows: : 1fr 2fr 1fr;
-	width: 500px;
-	height: 500px;
-	border: 5px solid black;
-	text-align: center;
+	
 	background: url(images/cork-board.png);
+	width: 800px;
+	height: 600px;
+	margin: auto auto auto auto;
+	display: grid;
+	grid-template-rows: 5% 10% 5% 5% 1fr 1fr 5%;
+	
 }
+
 
 .boxOneOne{
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 33% 33% 33%;
+}
+.boxTwoOne{
+	display: grid;
+	grid-template-columns: 1fr 20% 50% 20% 1fr;
+}
+.boxThreeOne{
+	display: grid;
+	grid-template-columns: 1fr 33% 1fr;
+}
+
+.boxFourOne{
+	display: grid;
+	grid-template-columns: 1fr 40% 1fr;
+	height: 150px;
+
+
+}
+.boxFiveOne{
+	display: grid;
+	grid-template-columns: 5% 1fr 1fr 1fr 1fr 5%;
+	height: 150px;
+	grid-gap: 20px;
+}
+
+.boxOne{
+	border: 3px solid black;
 }
 
 .boxTwo{
-	display: grid;
-	grid-template-columns: 1fr 1fr;
+	border: 3px solid black;
 }
-
-.boxTwoTwo{
-	display: grid;
-	grid-template-rows: 1fr 1fr 1fr 1fr;
-}
-
 .boxThree{
-	display: grid;
-	grid-template-columns: 1fr 1fr;
+	border: 3px solid black;
+}
+.boxFour{
+	border: 3px solid black;
+}
+.boxFive{
+	border: 3px solid black;
+}
+.boxSix{
+	border: 3px solid black;
 }
 
 #player{
 	border: 3px solid black;
+	background-image: url(images/dwight.jpg);
 }
 
 #start{
 	border: 3px solid black;
+
 }
 
 #timer{
@@ -42,22 +73,40 @@
 
 #questionAsked{
 	border: 3px solid black;
+
+	
+	
 }
 
 #answerOne{
+	
+
+	background-color: #FFFFA5;
 	border: 3px solid black;
 }
 
 #answerTwo{
+	
+	
+	background-color: #FFFFA5;
 	border: 3px solid black;
+
 }
 
 #answerThree{
+	
+	
+	background-color: #FFFFA5;
 	border: 3px solid black;
 }
 
 #answerFour{
+	
+	
+	background-image: url(images/dwight.jpg);
 	border: 3px solid black;
+	background-size: 100% 100%;
+
 }
 
 #score{
