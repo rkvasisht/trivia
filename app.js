@@ -15,74 +15,74 @@ var master=[
 	 	'option3':'New England'
 		},
 
-		{'question':'Darly turned down the Print in colors ',
-	 	'answer':'rahul',
-	 	'option1':'bob',
-	 	'option2':'moe',
-	 	'option3':'joe'
+		{'question':'Darly turned down the Print in colors program by Saber because of what conflict?',
+	 	'answer':'softball league',
+	 	'option1':'eagles games',
+	 	'option2':'cooking class',
+	 	'option3':'getting back with his ex wife'
 		},
 
-		{'question':'what color is the color of grass?',
-	 	'answer':'green',
-	 	'option1':'yellow',
-	 	'option2':'brown',
-	 	'option3':'purple'
+		{'question':'Who is the author of the Ultimate guide to throwing a garden party',
+	 	'answer':'James Trickton',
+	 	'option1':'Jim Shalpert',
+	 	'option2':'James Haller',
+	 	'option3':'Jimmy Halp'
 		},
 
-		{'question':'what is 3+3?',
-	 	'answer':'6',
-	 	'option1':'3',
-	 	'option2':'7',
-	 	'option3':'97'
+		{'question':'Which of these charecters was on Robert Californias loser side of the list',
+	 	'answer':'Pam',
+	 	'option1':'Kevin',
+	 	'option2':'Jim',
+	 	'option3':'Dwight'
 		},
 
-		{'question':'what is your name',
-	 	'answer':'bill',
-	 	'option1':'bob',
-	 	'option2':'moe',
-	 	'option3':'joe'
+		{'question':'What is Roys brothers name?',
+	 	'answer':'Bill',
+	 	'option1':'Troy',
+	 	'option2':'Kenny',
+	 	'option3':'Chris'
 		},
 
-		{'question':'what color is the color of dirt',
-	 	'answer':'brown',
-	 	'option1':'green',
-	 	'option2':'aqua',
-	 	'option3':'purple'
+		{'question':'What does Pam think Roy will be serving at their wedding?',
+	 	'answer':'burgers',
+	 	'option1':'hot dogs',
+	 	'option2':'hot pockets',
+	 	'option3':'tater tots'
 		},
 
-		{'question':'what is 4+4?',
-	 	'answer':'8',
-	 	'option1':'3',
-	 	'option2':'7',
-	 	'option3':'97'
+		{'question':'Why did Michael schedule his trip to Jamaica in December?',
+	 	'answer':'So he would miss inventory',
+	 	'option1':'So he was not around Toby for the holidays',
+	 	'option2':'So he could get away from the cold',
+	 	'option3':'Won the trip through a malbro points contest even though he is not a smoker'
 		},
 
-		{'question':'what is his name',
-	 	'answer':'ted',
-	 	'option1':'bob',
-	 	'option2':'moe',
-	 	'option3':'joe'
+		{'question':'Who is the manager after Dwight shoot off his gun?',
+	 	'answer':'Robert California',
+	 	'option1':'Jim',
+	 	'option2':'Creed',
+	 	'option3':'Andy'
 		},
 
-		{'question':'what color is water?',
-	 	'answer':'water color',
-	 	'option1':'green',
-	 	'option2':'brown',
-	 	'option3':'purple'
+		{'question':'What type of gun did Dwight shoot into the floor?',
+	 	'answer':'Beaumont-Adams',
+	 	'option1':'Remington',
+	 	'option2':'Colt',
+	 	'option3':'Smith and Wessin'
 		},
 
-		{'question':'what is 5+5?',
-	 	'answer':'10',
-	 	'option1':'3',
-	 	'option2':'7',
-	 	'option3':'97'
+		{'question':'What is the name of the movie Michael made?',
+	 	'answer':'Threat level midnight',
+	 	'option1':'Die again then again',
+	 	'option2':'Michael Scarn: The man with no fear',
+	 	'option3':'Golden Face'
 		},
 
-		{'question':'what is her name',
-	 	'answer':'jill',
-	 	'option1':'bob',
-	 	'option2':'moe',
-	 	'option3':'joe'
+		{'question':'what did Michael put in the desk of Toby to fram him for drugs',
+	 	'answer':'Caprese Salad',
+	 	'option1':'Chopped froze spinich',
+	 	'option2':'Oregano',
+	 	'option3':'Dill'
 		}
 
 
@@ -113,7 +113,7 @@ var scoreTwo = 0;
 // player two score
 var remainQ = [];
 // array of remaining questions after the splice of used questions
-var startTime = 30; 
+var startTime = 11; 
 // starting time of timer. 
 var test = null;
 // set an interval of 1 second to the timer function
